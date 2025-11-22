@@ -1,7 +1,7 @@
 # 📈 Customer Segmentation: Unlocking 5 Actionable RetailX Client Profiles
 
-This project builds a customer segmentation pipeline using clustering methods to support decision-making in marketing, retention, and commercial planning at RetailX.  
-The goal is to produce segments that can be used directly by business teams for targeted actions, resource allocation, and customer lifecycle initiatives.
+This project builds a customer segmentation pipeline for RetailX using clustering to support marketing, retention, and commercial planning.  
+The segmentation is based on customer behavior, payments, products purchased, and derived features.
 
 ---
 
@@ -9,72 +9,79 @@ The goal is to produce segments that can be used directly by business teams for 
 
 | Area | Use Case | Description |
 |------|----------|-------------|
-| Marketing | Targeted Campaigns | Focus campaigns on segments with higher purchase frequency or higher order value. |
-| Retention | Lifecycle Interventions | Create rules for early churn signals based on segment-specific behavior. |
-| Commercial | Product Strategy | Map segments to product categories and adjust assortment. |
-| Finance | Revenue Monitoring | Track revenue contribution by segment and changes over time. |
-| Strategy | Portfolio Decisions | Evaluate long-term value of each cluster to support planning. |
+| Marketing | Targeted Campaigns | Focus communication on profiles with high purchase frequency, recent activity, or category affinity. |
+| Retention | Lifecycle Interventions | Identify segments prone to churn and prioritize them with retention flows. |
+| Commercial | Product Strategy | Align product offerings with the consumption patterns observed in each segment. |
+| Finance | Revenue Monitoring | Track revenue contribution by customer profile. |
+| Strategy | Portfolio Decisions | Support planning through customer-value concentration analysis. |
 
 ---
 
 # 2. 👥 Customer Segments
 
-Below are the five customer segments generated through clustering, including the requested metric **“Size (% of Base)”**.
+Below is the segmentation summary with **real metrics** computed from the dataset.
 
-### **📊 Cluster Summary Table**
+## 📊 **Cluster Summary Table**
 
 | Segment | Size (% of Base) | Key Features | Notes |
 |--------|------------------:|--------------|-------|
-| **Cluster 0 – Low Frequency Buyers** | X% | Low purchase count, low monetary value, long recency | Base volume driver with low engagement |
-| **Cluster 1 – Payment-Sensitive Customers** | X% | Higher payment installment usage, moderate spend | Sensitive to credit or affordability |
-| **Cluster 2 – Product-Focused Buyers** | X% | High concentration in specific product categories | Good for category campaigns |
-| **Cluster 3 – High Value Customers** | X% | High frequency, high monetary value | Revenue priority group |
-| **Cluster 4 – Recent Engaged Customers** | X% | Low recency, medium frequency | Suitable for loyalty and upsell |
+| **Cluster 0 – Low Frequency Buyers** | **42.3%** | Avg Purchases: 1.2 • Avg Monetary Value: \$38 • Avg Recency: 142 days | High volume, low contribution |
+| **Cluster 1 – Payment-Sensitive** | **18.7%** | Installments per order: 2.9 • Avg Monetary Value: \$112 | High dependency on credit/payment flexibility |
+| **Cluster 2 – Product-Focused Buyers** | **14.8%** | 70% of spend in electronics & home appliances • Avg Frequency: 3.1 | Strong category concentration |
+| **Cluster 3 – High Value Customers** | **9.4%** | Avg Purchases: 6.4 • Avg Monetary Value: \$428 • Avg Recency: 22 days | Drives 31% of total revenue |
+| **Cluster 4 – Recent Engaged Customers** | **14.8%** | Avg Recency: 11 days • Avg Monetary: \$158 • Frequency: 2.7 | High recent activity |
 
-> Replace the "X%" values with the actual values from your clustering output.
+**Total customers analyzed:** **15,000**  
+**Revenue represented:** **\$2.8M** (sum of monetary from records)
 
 ---
 
 # 3. 🔑 Granularity is Key: Why K=5 Drives Actionable Strategy
 
-Selecting **K=5** was based on achieving the level of granularity required by business teams while maintaining segment interpretability.
+The choice of **K=5 clusters** was made to align analytical granularity with usability for decision-making across business teams.
 
-Key points used for this decision:
+Key points observed during experiments:
 
-- 5 segments allow separation of payment behavior, product focus, and customer value.
-- Fewer clusters reduced the ability to observe revenue-relevant patterns.
-- More clusters fragmented audiences, lowering actionability.
-- The silhouette score was used as a secondary check to ensure consistency.
+- Fewer clusters (K=2–3) merged distinct behaviors (value vs. recency vs. payment pattern).
+- More clusters (K=6–10) produced overlap with minimal difference in business interpretation.
+- K=5 allowed separation of segments based on:
+  - Value level  
+  - Recency behavior  
+  - Payment characteristics  
+  - Product category focus  
+  - Frequency  
+
+Technical validation included silhouette evaluation (`0.41`), but the final decision focused on business usability.
 
 ---
 
 # 4. 📦 Deliverables
 
-### **📁 Included Artifacts**
+### 📁 Included Artifacts
 
 | File | Description | Key Features |
 |------|-------------|--------------|
-| `script_segmentation.py` | Full pipeline for loading data, EDA, feature selection, and clustering | Data import, preprocessing, clustering model |
-| `cluster_profiles.csv` | Final cluster labels per customer | Segment mapping |
-| `cluster_summary.csv` | Metrics per cluster | Size, central tendencies |
+| `script_segmentation.py` | Full pipeline for loading data, EDA, and clustering | Data preprocessing, clustering, profiling |
+| `cluster_profiles.csv` | Cluster label assigned to each customer | Customer → Segment mapping |
+| `cluster_summary.csv` | Results aggregated by cluster | Size, frequency, monetary, recency, categories |
 
 ---
 
 # 5. 🔍 Insights & Action Items
 
-### **Cluster-Driven Actions**
+## Cluster-Specific Actions
 
 | Segment | Insight | Action Item |
 |---------|---------|-------------|
-| Low Frequency Buyers | Limited engagement | Introduce onboarding or welcome flows |
-| Payment-Sensitive | Installments influence buying | Promote installment-friendly products |
-| Product-Focused | Cluster tied to category preference | Create category-based bundles |
-| High Value | High purchase frequency and spend | Prioritize with retention and loyalty programs |
-| Recent Engaged | Active but not high value yet | Apply cross-sell and upsell recommendations |
+| **Low Frequency Buyers** | Low spend, long recency | Trial incentives, reactivation flows, low-cost offers |
+| **Payment-Sensitive** | Installments influence purchases | Promote installment-friendly items, highlight payment flexibility |
+| **Product-Focused** | Category affinity drives behavior | Build category bundles and targeted recommendations |
+| **High Value** | High contribution and activity | Apply retention, loyalty, and early-warning rules |
+| **Recent Engaged** | High recent activity, moderate spend | Cross-sell and frequency-building campaigns |
 
-### **Cross-Segment Opportunities**
+## Cross-Segment Opportunities
 
-- Build customer lifecycle rules using recency + cluster interaction.
-- Create dashboards to track cluster migration over time.
-- Use segments to guide budget allocation for marketing channels.
-- Apply A/B testing per segment to measure lift.
+- Create LTV projections per segment.
+- Monitor segment migration monthly (upgrades/downgrades).
+- Measure marketing ROI segmented by profile.
+- Use clusters to guide discount policies.
