@@ -1,4 +1,4 @@
-# 📈 Customer Segmentation: Unlocking 5 Actionable RetailX Client Profiles
+# 📈 Customer Segmentation: Unlocking 5 Actionable Client Profiles
 
 This project builds a customer segmentation pipeline for RetailX using clustering to support marketing, retention, and commercial planning.  
 The segmentation is based on customer behavior, payments, products purchased, and derived features.
