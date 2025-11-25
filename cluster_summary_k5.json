@@ -1,0 +1,84 @@
+{
+  "K_USED": 5,
+  "features_used_clustering": [
+    "age",
+    "log_sales",
+    "log_units",
+    "log_orders",
+    "log_hh_income"
+  ],
+  "features_log_transformed_original": [
+    "sales",
+    "units",
+    "orders",
+    "hh_income"
+  ],
+  "features_excluded_binary": [
+    "omni_shopper",
+    "email_subscribed"
+  ],
+  "best_k_auto_silhouette": 2,
+  "silhouette_scores": {
+    "2": 0.4128840856078061,
+    "3": 0.2869723956015282,
+    "4": 0.30063658834648066,
+    "5": 0.3150588429630741,
+    "6": 0.3010391859113781,
+    "7": 0.2946149138415209,
+    "8": 0.29853507819419245,
+    "9": 0.29204066520308586,
+    "10": 0.2882690551523203
+  },
+  "cluster_report_table": [
+    {
+      "cluster": 0,
+      "count": 230,
+      "%_of_total": 23.0,
+      "AVG_age": 45.43,
+      "AVG_hh_income": 496443.48,
+      "AVG_sales": 12346.24,
+      "AVG_units": 45.69,
+      "AVG_orders": 20.82
+    },
+    {
+      "cluster": 1,
+      "count": 238,
+      "%_of_total": 23.8,
+      "AVG_age": 57.31,
+      "AVG_hh_income": 595516.81,
+      "AVG_sales": 4340.32,
+      "AVG_units": 15.53,
+      "AVG_orders": 7.28
+    },
+    {
+      "cluster": 2,
+      "count": 185,
+      "%_of_total": 18.5,
+      "AVG_age": 44.88,
+      "AVG_hh_income": 561832.43,
+      "AVG_sales": 1847.03,
+      "AVG_units": 7.46,
+      "AVG_orders": 3.92
+    },
+    {
+      "cluster": 3,
+      "count": 248,
+      "%_of_total": 24.8,
+      "AVG_age": 34.11,
+      "AVG_hh_income": 584266.13,
+      "AVG_sales": 4439.01,
+      "AVG_units": 16.33,
+      "AVG_orders": 7.53
+    },
+    {
+      "cluster": 4,
+      "count": 99,
+      "%_of_total": 9.9,
+      "AVG_age": 44.75,
+      "AVG_hh_income": 85777.78,
+      "AVG_sales": 3959.24,
+      "AVG_units": 14.88,
+      "AVG_orders": 7.05
+    }
+  ]
+}
